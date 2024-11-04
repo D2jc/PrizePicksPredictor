@@ -59,6 +59,6 @@ def fetch_and_store_data(seasons):
     return np.unique(dates)
 
 if __name__ == "__main__":
-    seasons = np.arange(2014, 2023)
+    seasons = np.arange(2023, 2024)
     dates = fetch_and_store_data(seasons)
     print(dates)

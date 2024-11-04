@@ -17,6 +17,10 @@ headers = {
 
 @retry(wait=wait_exponential(multiplier=1, min=4, max=10), stop=stop_after_attempt(5), retry=retry_if_exception_type(requests.exceptions.RequestException))
 def make_request(params):
-    response = requests.get(API_ENDPOINT, headers=headers, params=params)
-    response.raise_for_status()  # Raise an exception for HTTP errors
-    return response.json()
+    try:
+        response = requests.get(API_ENDPOINT, headers=headers, params=params)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        return response
+    except requests.exceptions.HTTPError as e:
+        print(f"HTTPError: {e.response.status_code} for URL: {e.response.url} with params: {params}")
+        raise

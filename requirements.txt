@@ -1,9 +1,20 @@
-python-dotenv==1.0.1
-requests==2.31.0
-pyodbc==4.0.34
-psycopg2==2.9.9
-tenacity==8.0.1
-numpy==1.23.5
-pandas==1.5.3
-sqlalchemy==1.4.39
-tqdm==4.64.1
+# General dependencies
+python-dotenv
+requests
+tenacity
+numpy
+pandas
+sqlalchemy
+tqdm
+
+# Install with conda:
+# conda install psycopg2
+
+# System dependencies (instructions only, not processed by pip)
+# For Linux:
+#   sudo apt install -y python3-dev libpq-dev unixodbc-dev
+# For macOS:
+#   brew install postgresql unixodbc
+# For Windows:
+#   Download and install ODBC Driver for SQL Server:
+#   https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server

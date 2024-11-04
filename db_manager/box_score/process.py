@@ -22,7 +22,7 @@ def process_date(date):
         "date": date,
     }
     try:
-        data = make_request(params)
+        data = make_request(params).json()
         player_records = []
         game_records = []
         player_game_records = []
