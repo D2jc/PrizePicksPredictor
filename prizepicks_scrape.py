@@ -10,9 +10,6 @@ To run this script, execute the following command in your terminal:
 python prizepicks_scrape.py
 
 ----------------------------------------------------------------------------------
-    By: Minchan Kim
-    Version: 1.5
-    Last Updated: 2024-03-31
 """
 
 import time
