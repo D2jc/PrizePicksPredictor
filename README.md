@@ -1,5 +1,7 @@
 # PrizePicksPredictor
 
+Disclaimer, we have used an API and scraped the data. However, the Wiki tab does have the source to the API as well as the environment setup requirements for scraping the data.
+
 ## Preprocessing Steps:
 
 1. Drop Irrelevant Columns: There are many columns such as game_status, game_period, player_jersey_number, player_college, player_country, player_draft_year, player_draft_round, player_draft_number, team_conference, team_division, team_city, team_abbreviation, game_postseason, game_status, game_time and much more are not very important for predictions on a player's particular stats such as for how many points they make / rebounds they receive / assists they make.
