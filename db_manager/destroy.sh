@@ -2,7 +2,7 @@
 
 # Load .env file
 set -a
-source .env
+source ../.env
 set +a
 
 # PostgreSQL connection details

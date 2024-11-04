@@ -92,7 +92,7 @@ def worker(queue, progress_bar, num_workers):
             queue.task_done()
             progress_bar.update(1)
             # Add a delay to respect the rate limit
-            time.sleep(1 / ((300 / 60) / num_workers)) # Makes at most 300 requests per minute.
+            time.sleep(1 / ((5000 / 60) / num_workers)) # Makes at most 5000 requests per minute.
         except Empty:
             break
         except Exception as e:
