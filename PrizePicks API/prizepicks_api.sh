@@ -10,9 +10,9 @@ curl 'https://api.prizepicks.com/projections?league_id=7&per_page=250&single_sta
   -H 'Referer: https://app.prizepicks.com/' \
   -H 'X-Device-ID: 1a9d6304-65f3-4304-8523-ccf458d3c0c4' \
   -H 'sec-ch-ua-platform: "macOS"' \
-  -o data/response.json
+  -o ../data/response.json
 
 # Pretty-print the JSON using jq
-jq '.' data/response.json > data/formatted_response.json
+jq '.' ../data/response.json > ../data/formatted_response.json
 
-echo "Formatted JSON saved to 'data/formatted_response.json'"
+echo "Formatted JSON saved to 'PrizePicksPredictor/formatted_response.json'"

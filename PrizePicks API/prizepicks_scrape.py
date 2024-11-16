@@ -9,6 +9,8 @@ Also, make sure you have the Chrome WebDriver installed and in your system's PAT
 To run this script, execute the following command in your terminal:
 python prizepicks_scrape.py
 
+!!DOES NOT WORK ANYMORE DUE TO CHANGES IN THE WEBSITE!!
+
 ----------------------------------------------------------------------------------
 """
 
