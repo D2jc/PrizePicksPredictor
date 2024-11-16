@@ -16,6 +16,7 @@ import time
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 import bs4
 
 class PrizePicksScraper:
@@ -27,7 +28,9 @@ class PrizePicksScraper:
         """
         Initializes the PrizePicksScraper class.
         """
-        self.driver = webdriver.Chrome()
+        options = Options()
+        options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.5993.88 Safari/537.36")
+        self.driver = webdriver.Chrome(options=options)
         self.players_projections = pd.DataFrame()
 
 
@@ -52,11 +55,14 @@ class PrizePicksScraper:
             
             # Opens PrizePicks URL and goes to Today's Board
             self.driver.get('https://www.prizepicks.com/')
-            self.driver.find_element(By.LINK_TEXT, 'Today’s Board').click()
+            time.sleep(5)
+            self.driver.find_element(By.LINK_TEXT, 'Play Now').click()
 
             # Lets app.prizepicks.com load, then switches to the tab
-            time.sleep(20)
+            time.sleep(5)
             self.driver.switch_to.window(self.driver.window_handles[-1])
+            self.driver.refresh()
+            time.sleep(10)
 
             # Clicks on 'Sounds Good' button to proceed to the site
             self.driver.find_element(By.XPATH, '/html/body/div[3]/div[3]/div/div/div[2]/button').click()
