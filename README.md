@@ -31,5 +31,7 @@ Run the Jupyter Notebook called AnalysisVis.ipynb. This notebook has our data ex
 10. Then, we split the data into training and testing sets while ensuring that sequences from the same player are kept intact within either set. By grouping sequences based on player names, 80% of each player’s data is allocated for training, and the remaining 20% is reserved for testing. We also converted the data into Pytorch tensors.
 11. Following the splitting of our data and conversion, we trained and tested our data on a baseline Long-short Term Model.
 
+Thoughts and analysis of our model is at the very bottom of the notebook. Please scroll all the way down to find it.
+
 ### Conclusion:
 Overall, we believe that we had a great start in our model(s) with a about an accuracy rate of 67% which is better than blindly guessing (50% chance). We believe that our model can be improved with different feature engineering such as giving the actual averages of our players from different time periods or hyperparameter tuning our model where we experiment with different LTSM options such as hidden layer sizes, learning rates, and sequence lengths. Lastly, we can try different models such as Attention Long-short Term Model and Stacked Long-short Term Model to see how they would be compared to our baseline LSTM.
