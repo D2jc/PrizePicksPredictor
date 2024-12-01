@@ -33,6 +33,13 @@ Run the Jupyter Notebook called AnalysisVis.ipynb. This notebook has our data ex
 
 Thoughts and analysis of our model is at the very bottom of the notebook. Please scroll all the way down to find it.
 
+## [Second Model]()
+
+1. We completed pre-processing of the data in the same way as in Milestone 3, dropping unnecessary columns, standardized some of the features, aggregated features to extract new features like hot streaks. We used PrizePicks targets as the y variable and the cleaned data features as our x variables.
+2. We created an initial random forest classifier with 75% train and 25% test split.
+3. We tuned the hyperparameters using GridSearchCV, adjusting n_estimators, max_features, max_depth, and min_samples_split to achieve the maximum accuracy of 88% on the test data.
+4. We plotted train and test accuracy for different settings for hyperparameters using matplotlib, which shows the hyperparameters that we chose as the best possible ones.
+
 ### Conclusion:
 Overall, we believe that we had a great start in our model(s) with a about an accuracy rate of 67% which is better than blindly guessing (50% chance). We believe that our model can be improved with different feature engineering such as giving the actual averages of our players from different time periods or hyperparameter tuning our model where we experiment with different LTSM options such as hidden layer sizes, learning rates, and sequence lengths. Lastly, we can try different models such as Attention Long-short Term Model and Stacked Long-short Term Model to see how they would be compared to our baseline LSTM.
 
