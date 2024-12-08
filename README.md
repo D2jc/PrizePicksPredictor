@@ -64,7 +64,7 @@ Since PrizePicks lines change daily we selected a specific week to lock in the l
 10. Then, we split the data into training and testing sets while ensuring that sequences from the same player are kept intact within either set. By grouping sequences based on player names, 80% of each player’s data is allocated for training, and the remaining 20% is reserved for testing. We also converted the data into Pytorch tensors.
 11. Following the splitting of our data and conversion, we trained and tested our data on a baseline Long-short Term Model.
 
-### [Random Forest Classifier (Second Model)](https://github.com/D2jc/PrizePicksPredictor/tree/main/MS4)
+### [Random Forest Classifier (Second Model)](https://github.com/D2jc/PrizePicksPredictor/tree/main/MS4/Second_Model.ipynb)
 
 > The notebook for Milestone 4 (Second Model) can be found at []
 
