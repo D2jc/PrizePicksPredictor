@@ -1,4 +1,4 @@
-> TODOs right now: clean up repo and structure, do figures section, review methods section, do results section, modify and improve discussion section, do conclusion section
+> TODOs right now: clean up repo and structure, add figures around, review methods section, do results section, modify and improve discussion section, do conclusion section
 
 # PrizePicksPredictor
 
@@ -17,14 +17,6 @@ More specifically, in this project, we aimed to develop models to predict whethe
 For the binary classification task at hand of predicting underperformance or overperformance of projections , we developed and tuned two different models: a Long Short-Term Memory (LSTM) recurrent neural network (RNN) and a random forest classifier. The LSTM model is well-suited for capturing temporal dependencies in time series data, such as player performance trends over time. The random forest classifier, on the other hand, is a powerful ensemble method that can handle complex decision-making processes.
 
 The implications of this project extend beyond the realm of fantasy sports. A successful model could potentially aid sports bettors, coaches, and even front-office personnel in making informed decisions. Additionally, this project contributes to the broader field of sports analytics by demonstrating the power of machine learning in predicting individual player performance, a challenge that has long intrigued a variety of stakeholders alike.
-
----------
-
-## Figures
-
-> FROM INSTRUCTIONS: Your report should include relevant figures of your choosing to help with the narration of your story, including legends (similar to a scientific paper). For reference you search machine learning and your model in google scholar for reference examples.
-
-TODO
 
 ---------
 
