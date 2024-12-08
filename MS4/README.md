@@ -30,7 +30,7 @@ Since PrizePicks lines change daily we will select a specific week to lock in th
 ## Data Exploration:
 Run the Jupyter Notebook called AnalysisVis.ipynb. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
 
-## [Data Preprocessing and First Model](https://github.com/D2jc/PrizePicksPredictor/blob/main/Preprocessing/Data%20Processing%20and%20First%20Model.ipynb)
+## Data Preprocessing and First Model
 1. We converted the 'Date' column to accurately ensure a proper day, month, and year date setting in the column.
 2. We combined the 'first_name' and 'last_name' to create a new column of 'player_name' so that when we merge the Prizepicks data, it can match up to the individual player name.
 3. We ended up dropping the 'first_name', 'last_name', 'turnover', and 'pf' as for the first two, we have already combined those columns, and 'turnover' and 'pf' was discussed to be unhelpful in our model.
@@ -45,9 +45,7 @@ Run the Jupyter Notebook called AnalysisVis.ipynb. This notebook has our data ex
 
 Thoughts and analysis of our model is at the very bottom of the notebook. Please scroll all the way down to find it.
 
-## [Second Model](https://github.com/D2jc/PrizePicksPredictor/tree/Milestone4)
-
-> The notebook for Milestone 4 (Second Model) can be found at [https://github.com/D2jc/PrizePicksPredictor/blob/Milestone4/MS4/Second_Model.ipynb]
+## Second Model
 
 1. We completed pre-processing of the data in the same way as in Milestone 3, dropping unnecessary columns, standardized some of the features, aggregated features to extract new features like hot streaks. We used PrizePicks targets as the y variable and the cleaned data features as our x variables.
 2. We created an initial random forest classifier with 75% train and 25% test split.
@@ -58,22 +56,3 @@ Thoughts and analysis of our model is at the very bottom of the notebook. Please
 Overall, we believe that we had a great start in our model(s) with a about an accuracy rate of 67% which is better than blindly guessing (50% chance). We believe that our model can be improved with different feature engineering such as giving the actual averages of our players from different time periods or hyperparameter tuning our model where we experiment with different LTSM options such as hidden layer sizes, learning rates, and sequence lengths. Lastly, we can try different models such as Attention Long-short Term Model and Stacked Long-short Term Model to see how they would be compared to our baseline LSTM.
 
 Following using a random forest classifier for our second model, we realized from this model that in order to get the minimum test error, we needed to overfit our training set a little bit. After optimizing our hyperparameters, we got the maximum accuracy at about 80%, which is what we previosuly capped out at. We increased the hidden layers in our random forest model and learned that it did a better job than the original model of determing hidden features and other intracies in our data. For our next model, it may be worth it to try approaches that are closer to the random forest approach in comparison to the RNN approach, as we found this works significantly better.
-
-----------
-# Results:
-
-----------
-# Discussion:
-
-----------
-# Conclusion:
-
-----------
-
-# Statement of Collaboration:
-
-- Minchan Kim, Group Member: Contributed to code and report
-- David Moon, Group Member: Contributed to code and report
-- Rohil Kadekar, Group Member: Contributed to code and report
-- Jason Kim, Group Member: Contributed to code and report
-- Mihir Joshi, Group Member: Contributed to code and report
