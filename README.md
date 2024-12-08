@@ -42,7 +42,7 @@ Since PrizePicks lines change daily we selected a specific week to lock in the l
 
 ### [Data Preprocessing and LSTM RNN (First Model)](https://github.com/D2jc/PrizePicksPredictor/tree/main/MS3/Preprocessing/Data%20Processing%20and%20First%20Model.ipynb)
 
-> The notebook for Data Preprocessing and First Model can be found at []
+The notebook for Milestone 3 (First Model) can be found at [https://github.com/D2jc/PrizePicksPredictor/tree/main/MS3/Preprocessing/Data%20Processing%20and%20First%20Model.ipynb]
 
 1. We converted the 'Date' column to accurately ensure a proper day, month, and year date setting in the column.
 2. We combined the 'first_name' and 'last_name' to create a new column of 'player_name' so that when we merge the Prizepicks data, it can match up to the individual player name.
@@ -58,7 +58,7 @@ Since PrizePicks lines change daily we selected a specific week to lock in the l
 
 ### [Random Forest Classifier (Second Model)](https://github.com/D2jc/PrizePicksPredictor/tree/main/MS4/Second_Model.ipynb)
 
-> The notebook for Milestone 4 (Second Model) can be found at []
+The notebook for Milestone 4 (Second Model) can be found at [https://github.com/D2jc/PrizePicksPredictor/tree/main/MS4/Second_Model.ipynb]
 
 1. We completed pre-processing of the data in the same way as in Milestone 3, dropping unnecessary columns, standardized some of the features, aggregated features to extract new features like hot streaks. We used PrizePicks targets as the y variable and the cleaned data features as our x variables.
 2. We created an initial random forest classifier with 75% train and 25% test split.
