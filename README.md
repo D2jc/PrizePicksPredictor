@@ -33,7 +33,7 @@ TODO
 > We should remove anything related to accuracy --> move to Results section. Also fix the links to notebooks to be in the main branch.
 
 ### Data Exploration:
-Run the Jupyter Notebook called AnalysisVis.ipynb. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
+Run the Jupyter Notebook called AnalysisVis.ipynb which can be found in MS2. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
 
 ### Preprocessing Steps:
 
