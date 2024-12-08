@@ -2,6 +2,18 @@
 
 Disclaimer, we have used an API and scraped the data. However, the Wiki tab does have the source to the API as well as the environment setup requirements for scraping the data.
 
+---------
+
+# Abstract:
+
+In this project, we will aim to develop a model using neural networks to predict whether NBA players will score over or under the point, rebound, and assist lines set by PrizePicks, a daily fantasy sportsbook. By leveraging a dataset of historical NBA player statistics from the official NBA website, we will analyze a range of variables such as points per game, shooting percentages, minutes played, and much more. Our focus in this project is to identify patterns and trends that influence the player in a specific match-up, allowing us to make a more accurate prediction than a human can. Our approach will be optimized in predicting player outcomes by experimenting with various variables to increase its accuracy. This study will provide a data-driven strategy for enhancing player prop betting predictions.
+
+---------
+# Methods:
+
+## Data Exploration:
+
+
 ## Preprocessing Steps:
 
 1. Drop Irrelevant Columns: There are many columns such as turnover, pf, and player_id that we would drop as they are not very important for predictions on a player's particular stats such as for how many points they make / rebounds they receive / assists they make. After combining the first and last name of players, we would drop the individual columns as well as the player_id.
@@ -15,7 +27,7 @@ Since PrizePicks lines change daily we will select a specific week to lock in th
 1. We’ll pick a single week and specific players to make a prediction within the NBA season to focus on our predictions. By fixing this time period, we’ll ensure that our data and model align with the lines available during that week, providing a consistent basis for evaluating player performance.
 3. Lock in Lines for Each Player: For this chosen week, we’ll record PrizePicks lines for points, rebounds, and assists for each player. These lines will serve as the target thresholds in our model, determining whether a player will go “over” or “under” in each category.
 
-## Data Visualization
+## Data Exploration:
 Run the Jupyter Notebook called AnalysisVis.ipynb. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
 
 ## [Data Preprocessing and First Model](https://github.com/D2jc/PrizePicksPredictor/blob/main/Preprocessing/Data%20Processing%20and%20First%20Model.ipynb)
@@ -44,3 +56,24 @@ Thoughts and analysis of our model is at the very bottom of the notebook. Please
 Overall, we believe that we had a great start in our model(s) with a about an accuracy rate of 67% which is better than blindly guessing (50% chance). We believe that our model can be improved with different feature engineering such as giving the actual averages of our players from different time periods or hyperparameter tuning our model where we experiment with different LTSM options such as hidden layer sizes, learning rates, and sequence lengths. Lastly, we can try different models such as Attention Long-short Term Model and Stacked Long-short Term Model to see how they would be compared to our baseline LSTM.
 
 Following using a random forest classifier for our second model, we realized from this model that in order to get the minimum test error, we needed to overfit our training set a little bit. After optimizing our hyperparameters, we got the maximum accuracy at about 80%, which is what we previosuly capped out at. We increased the hidden layers in our random forest model and learned that it did a better job than the original model of determing hidden features and other intracies in our data. For our next model, it may be worth it to try approaches that are closer to the random forest approach in comparison to the RNN approach, as we found this works significantly better.
+
+----------
+# Results:
+
+----------
+# Discussion:
+
+----------
+# Conclusion:
+
+----------
+
+# Statement of Collaboration:
+
+
+Minchan Kim, Group Member: Contributed to code and report
+David Moon, Group Member: Contributed to code and report
+Rohil Kadekar, Group Member: Contributed to code and report
+Jason Kim, Group Member: Contributed to code and report
+Mihir Joshi, Group Member: Contributed to code and report
+
