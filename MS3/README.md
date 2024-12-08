@@ -16,9 +16,9 @@ Since PrizePicks lines change daily we will select a specific week to lock in th
 3. Lock in Lines for Each Player: For this chosen week, we’ll record PrizePicks lines for points, rebounds, and assists for each player. These lines will serve as the target thresholds in our model, determining whether a player will go “over” or “under” in each category.
 
 ## Data Visualization
-Run the Jupyter Notebook called AnalysisVis.ipynb. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
+Run the Jupyter Notebook. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
 
-## [Data Preprocessing and First Model](https://github.com/D2jc/PrizePicksPredictor/blob/main/Preprocessing/Data%20Processing%20and%20First%20Model.ipynb)
+## Data Preprocessing and First Model
 1. We converted the 'Date' column to accurately ensure a proper day, month, and year date setting in the column.
 2. We combined the 'first_name' and 'last_name' to create a new column of 'player_name' so that when we merge the Prizepicks data, it can match up to the individual player name.
 3. We ended up dropping the 'first_name', 'last_name', 'turnover', and 'pf' as for the first two, we have already combined those columns, and 'turnover' and 'pf' was discussed to be unhelpful in our model.
