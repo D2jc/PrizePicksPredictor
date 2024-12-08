@@ -16,7 +16,7 @@ Since PrizePicks lines change daily we will select a specific week to lock in th
 3. Lock in Lines for Each Player: For this chosen week, we’ll record PrizePicks lines for points, rebounds, and assists for each player. These lines will serve as the target thresholds in our model, determining whether a player will go “over” or “under” in each category.
 
 ## Data Visualization
-Run the Jupyter Notebook. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
+Run the Jupyter Notebook in the Preprocessing Folder called (Data Processing and First Model.ipynb). This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
 
 ## Data Preprocessing and First Model
 1. We converted the 'Date' column to accurately ensure a proper day, month, and year date setting in the column.
