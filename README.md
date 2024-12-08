@@ -1,6 +1,6 @@
 # PrizePicksPredictor
 
-Disclaimer, we have used an API and scraped the data. However, the Wiki tab does have the source to the API as well as the environment setup requirements for scraping the data.
+Disclaimer, we have used an API and scraped the data. However, the [Wiki](https://github.com/D2jc/PrizePicksPredictor/wiki) does have the source to the API as well as the environment setup requirements for scraping the data.
 
 ---------
 
