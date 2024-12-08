@@ -71,9 +71,9 @@ Following using a random forest classifier for our second model, we realized fro
 # Statement of Collaboration:
 
 
-Minchan Kim, Group Member: Contributed to code and report
-David Moon, Group Member: Contributed to code and report
-Rohil Kadekar, Group Member: Contributed to code and report
-Jason Kim, Group Member: Contributed to code and report
-Mihir Joshi, Group Member: Contributed to code and report
+- Minchan Kim, Group Member: Contributed to code and report
+- David Moon, Group Member: Contributed to code and report
+- Rohil Kadekar, Group Member: Contributed to code and report
+- Jason Kim, Group Member: Contributed to code and report
+- Mihir Joshi, Group Member: Contributed to code and report
 
