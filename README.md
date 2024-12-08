@@ -33,7 +33,9 @@ Run the Jupyter Notebook called AnalysisVis.ipynb. This notebook has our data ex
 
 Thoughts and analysis of our model is at the very bottom of the notebook. Please scroll all the way down to find it.
 
-## [Second Model]()
+## [Second Model](https://github.com/D2jc/PrizePicksPredictor/tree/Milestone4)
+
+> The notebook for Milestone 4 (Second Model) can be found at [https://github.com/D2jc/PrizePicksPredictor/blob/Milestone4/MS4/Second_Model.ipynb]
 
 1. We completed pre-processing of the data in the same way as in Milestone 3, dropping unnecessary columns, standardized some of the features, aggregated features to extract new features like hot streaks. We used PrizePicks targets as the y variable and the cleaned data features as our x variables.
 2. We created an initial random forest classifier with 75% train and 25% test split.
