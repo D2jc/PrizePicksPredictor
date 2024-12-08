@@ -48,7 +48,7 @@ Since PrizePicks lines change daily we selected a specific week to lock in the l
 1. We picked a single week and specific players to make a prediction within the NBA season to focus on our predictions. By fixing this time period, we ensured that our data and model align with the lines available during that week, providing a consistent basis for evaluating player performance.
 3. Lock in Lines for Each Player: For this chosen week, we recorded PrizePicks lines for points, rebounds, and assists for each player. These lines will serve as the target thresholds in our model, determining whether a player will go “over” or “under” in each category.
 
-### [Data Preprocessing and LSTM RNN (First Model)](https://github.com/D2jc/PrizePicksPredictor/blob/main/Preprocessing/Data%20Processing%20and%20First%20Model.ipynb)
+### [Data Preprocessing and LSTM RNN (First Model)](https://github.com/D2jc/PrizePicksPredictor/tree/main/MS3/Preprocessing/Data%20Processing%20and%20First%20Model.ipynb)
 
 > The notebook for Data Preprocessing and First Model can be found at []
 
@@ -64,7 +64,7 @@ Since PrizePicks lines change daily we selected a specific week to lock in the l
 10. Then, we split the data into training and testing sets while ensuring that sequences from the same player are kept intact within either set. By grouping sequences based on player names, 80% of each player’s data is allocated for training, and the remaining 20% is reserved for testing. We also converted the data into Pytorch tensors.
 11. Following the splitting of our data and conversion, we trained and tested our data on a baseline Long-short Term Model.
 
-### [Random Forest Classifier (Second Model)](https://github.com/D2jc/PrizePicksPredictor/tree/Milestone4)
+### [Random Forest Classifier (Second Model)](https://github.com/D2jc/PrizePicksPredictor/tree/main/MS4)
 
 > The notebook for Milestone 4 (Second Model) can be found at []
 
