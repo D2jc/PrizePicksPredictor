@@ -1,4 +1,4 @@
-> TODOs right now: clean up repo and structure, add figures around, review methods section, do results section, modify and improve discussion section, do conclusion section
+> TODOs right now: add figures around, review methods section, do results section, modify and improve discussion section
 
 # PrizePicksPredictor
 
