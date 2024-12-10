@@ -40,9 +40,9 @@ Since PrizePicks lines change daily we selected a specific week to lock in the l
 1. We picked a single week and specific players to make a prediction within the NBA season to focus on our predictions. By fixing this time period, we ensured that our data and model align with the lines available during that week, providing a consistent basis for evaluating player performance.
 3. Lock in Lines for Each Player: For this chosen week, we recorded PrizePicks lines for points, rebounds, and assists for each player. These lines will serve as the target thresholds in our model, determining whether a player will go “over” or “under” in each category.
 
-### [Data Preprocessing and LSTM RNN (First Model)](https://github.com/D2jc/PrizePicksPredictor/tree/main/MS3/Preprocessing/Data%20Processing%20and%20First%20Model.ipynb)
+### [Data Preprocessing and LSTM RNN (First Model)](https://github.com/D2jc/PrizePicksPredictor/blob/main/Data%20Processing%20and%20First%20Model.ipynb)
 
-The notebook for Milestone 3 (First Model) can be found at [https://github.com/D2jc/PrizePicksPredictor/tree/main/MS3/Preprocessing/Data%20Processing%20and%20First%20Model.ipynb]
+The notebook for the First Model can be found at [https://github.com/D2jc/PrizePicksPredictor/blob/main/Data%20Processing%20and%20First%20Model.ipynb]
 
 1. We converted the 'Date' column to accurately ensure a proper day, month, and year date setting in the column.
 2. We combined the 'first_name' and 'last_name' to create a new column of 'player_name' so that when we merge the Prizepicks data, it can match up to the individual player name.
@@ -56,9 +56,9 @@ The notebook for Milestone 3 (First Model) can be found at [https://github.com/D
 10. Then, we split the data into training and testing sets while ensuring that sequences from the same player are kept intact within either set. By grouping sequences based on player names, 80% of each player’s data is allocated for training, and the remaining 20% is reserved for testing. We also converted the data into Pytorch tensors.
 11. Following the splitting of our data and conversion, we trained and tested our data on a baseline Long-short Term Model.
 
-### [Random Forest Classifier (Second Model)](https://github.com/D2jc/PrizePicksPredictor/tree/main/MS4/Second_Model.ipynb)
+### [Random Forest Classifier (Second Model)](https://github.com/D2jc/PrizePicksPredictor/blob/main/Second_Model.ipynb)
 
-The notebook for Milestone 4 (Second Model) can be found at [https://github.com/D2jc/PrizePicksPredictor/tree/main/MS4/Second_Model.ipynb]
+The notebook for Milestone 4 (Second Model) can be found at [https://github.com/D2jc/PrizePicksPredictor/blob/main/Second_Model.ipynb]
 
 1. We completed pre-processing of the data in the same way as in Milestone 3, dropping unnecessary columns, standardized some of the features, aggregated features to extract new features like hot streaks. We used PrizePicks targets as the y variable and the cleaned data features as our x variables.
 2. We created an initial random forest classifier with 75% train and 25% test split.
@@ -91,6 +91,8 @@ The notebook for Milestone 4 (Second Model) can be found at [https://github.com/
 
 > FROM INSTRUCTIONS: This is where you will discuss the why, and your interpretation and your though process from beginning to end. This will mimic the sections you have created in your methods section as well as new sections you feel you need to create. You can also discuss how believable your results are at each step. You can discuss any short comings. It's ok to criticize as this shows your intellectual merit, as to how you are thinking about things scientifically and how you are able to correctly scrutinize things and find short comings. In science we never really find the perfect solution, especially since we know something will probably come up int he future (i.e. donkeys) and mess everything up. If you do it's probably a unicorn or the data and model you chose are just perfect for each other!
 
+
+
 We believe that the LSTM model performed well given the context of the problem with an accuracy rate of 67%, which is better than blindly guessing (50% chance). We believe that our model can be improved with different feature engineering such as giving the actual averages of our players from different time periods or hyperparameter tuning our model where we experiment with different LTSM options such as hidden layer sizes, learning rates, and sequence lengths. Lastly, we can try different models such as Attention Long-short Term Model and Stacked Long-short Term Model to see how they would be compared to our baseline LSTM.
 
 Following using a random forest classifier for our second model, we realized from this model that in order to get the minimum test error, we needed to overfit our training set a little bit. After optimizing our hyperparameters, we got the maximum accuracy at about 80%, which is what we previosuly capped out at. We increased the hidden layers in our random forest model and learned that it did a better job than the original model of determing hidden features and other intracies in our data. For our next model, it may be worth it to try approaches that are closer to the random forest approach in comparison to the RNN approach, as we found this works significantly better.
@@ -99,18 +101,16 @@ Following using a random forest classifier for our second model, we realized fro
 
 ## Conclusion
 
-> FROM INSTRUCTIONS: This is where you do a mind dump on your opinions and possible future directions. Basically what you wish you could have done differently. Here you close with final thoughts.
-
-TODO
+This project has been very hectic with being able to use an API for using our data, preprocessing the data, and creating models that can somewhat have a better guess than random choice. We approached this challenge with two distinct machine learning algorithms, being Long short-term memory (LSTM) Neural Network, and a Random Forest Classifier. Though our basic LSTM NN model had struggle in correctly predicting our player projections, we believed that it was able to perform better than a blind guess, which was our intention for the entire project. In our second model, the Random Forest Classifier, we have seen major improvement in accuracy performance. While the models we implemented were pretty effective in terms of the goal of our project, looking back, we believe that we could have explored more specialized architectures such as Attention-based LSTMs or Gradient Boosting Machines. Additionally, incorporating a wider range of features, creating new features, and employing advanced ensemble techniques could have further enhanced the predictive performance and robustness of our models. Looking ahead, there a ton of more work to be done in regards to this project. First, using more external data sources, such as advanced player stats or play-by-play data, could provide better contextual insights for each prediction, especially when a player plays against a specific team. Additionally, changing from a fixed PrizePicks lines to dynamic predictions that update in real time as lines shift throughout the day could also create a more robust and adaptable framework. Towards the end of our project, being able to create a pipeline that streamlines data preprocessing, feature engineering, and model evaluation, into an automated end-to-end system would significantly improve efficiency and scalability. Finally, the development of a user-friendly interface to display predictions could make this tool accessible and engaging to the public.
 
 ---------
 
 ## Statement of Collaboration:
 
-- Minchan Kim, Group Member: Contributed to code and report
-- David Moon, Group Member: Contributed to code and report
-- Rohil Kadekar, Group Member: Contributed to code and report
-- Jason Kim, Group Member: Contributed to code and report
-- Mihir Joshi, Group Member: Contributed to code and report
+- Minchan Kim, Group Member: Contributed to the code and writing the report.
+- David Moon, Group Member: Contributed to the code and writing the report.
+- Rohil Kadekar, Group Member: Contributed to the code and writing the report.
+- Jason Kim, Group Member: Contributed to the code and writing the report.
+- Mihir Joshi, Group Member: Contributed to the code and writing the report.
 
 No members of the team consulted any non-members for any aspect of the project. No members of the team utilized any resources other than publicly available documentation in the development and writing processes of all milestones of the project. As this project is publicly available and completed for educational purposes, other individuals are permitted to responsibly use and build upon our work for non-commercial purposes.
