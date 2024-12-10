@@ -1,4 +1,4 @@
-> TODOs right now: add figures around, review methods section, do results section, modify and improve discussion section
+> TODOs right now: add figures around, add data exploration to methods section, do results section and discussion section
 
 # PrizePicksPredictor
 
@@ -29,12 +29,12 @@ Run the Jupyter Notebook called AnalysisVis.ipynb which can be found in MS2. Thi
 
 ### Preprocessing Steps:
 
-1. Drop Irrelevant Columns: There are many columns such as turnover, pf, and player_id that we would drop as they are not very important for predictions on a player's particular stats such as for how many points they make / rebounds they receive / assists they make. After combining the first and last name of players, we would drop the individual columns as well as the player_id.
-2. We would prepare a time-series data for lagged versions of key stats (points, assists, rebounds) to capture the player’s performance trends over recent games. For example, features like on_hotstreak_pts, on_hotstreak_rebounds, or on_hotstreak_assists can help the model capture whether or not the player is playing better than their average performance from past games.
-3. We would also create new features like points per minute played, assists per minute played, and rebounds per minute played to truly capture the player's efficiency and impact instead of pure counts.
-4. We would normalize features like 'fgm', 'fga', 'oreb', 'dreb', 'ast', 'stl', 'blk' and 'pts' to a standard scale (mean = 0, std = 1). This ensures that all features contribute equally to the model.
+1. Drop Irrelevant Columns: There are some columns such as turnover, pf, and player_id that we would drop as they are not very important for predictions on a player's particular stats such as for how many points they make / rebounds they receive / assists they make. After combining the first and last name of players, we would drop the individual columns as well as the player_id.
+2. We would prepare a time-series data for lagged versions of key stats (points, assists, rebounds) to capture the player’s performance trends over recent games. For example, features like on_hotstreak_pts, on_hotstreak_rebounds, or on_hotstreak_assists.
+3. We would also create new features like points per minute played, assists per minute played, and rebounds per minute played.
+4. We would normalize features like 'fgm', 'fga', 'oreb', 'dreb', 'ast', 'stl', 'blk' and 'pts' to a standard scale (mean = 0, std = 1).
 
-### Prizepicks Projections
+#### Prizepicks Projections
 Since PrizePicks lines change daily we selected a specific week to lock in the lines for our predictions:
 
 1. We picked a single week and specific players to make a prediction within the NBA season to focus on our predictions. By fixing this time period, we ensured that our data and model align with the lines available during that week, providing a consistent basis for evaluating player performance.
@@ -42,11 +42,11 @@ Since PrizePicks lines change daily we selected a specific week to lock in the l
 
 ### [Data Preprocessing and LSTM RNN (First Model)](https://github.com/D2jc/PrizePicksPredictor/blob/main/Data%20Processing%20and%20First%20Model.ipynb)
 
-The notebook for the First Model can be found at [https://github.com/D2jc/PrizePicksPredictor/blob/main/Data%20Processing%20and%20First%20Model.ipynb]
+The notebook for the First Model can be found at ```Data Processing and First Model.ipynb```
 
 1. We converted the 'Date' column to accurately ensure a proper day, month, and year date setting in the column.
 2. We combined the 'first_name' and 'last_name' to create a new column of 'player_name' so that when we merge the Prizepicks data, it can match up to the individual player name.
-3. We ended up dropping the 'first_name', 'last_name', 'turnover', and 'pf' as for the first two, we have already combined those columns, and 'turnover' and 'pf' was discussed to be unhelpful in our model.
+3. We ended up dropping the 'first_name', 'last_name', 'turnover', and 'pf' as for the first two
 4. We checked for any missing data and found that there was none missing.
 5. We merged the projections dataframe from Prizepicks with the data we have preprocessed so we had a dataframe that had 'player_name ', 'date', 'fgm', 'fga', 'fg_pct', 'fg3m', 'fg3a', 'fg3_pct', 'ftm', 'fta', 'ft_pct', 'oreb', 'dreb', 'reb', 'ast', 'stl', 'blk', 'pts', and 'line_score'.
 6. We then created features 'on_hotstreak_pts, 'on_hotstreak_asts', and 'on_hotstreak_reb' where we computed the last 5 averages in points, assists, and rebounds for each player. Then, gave a binary value of either '1' to indicate that they are doing better than the average of their past 5 games, and a '0' if they are not.
@@ -58,12 +58,11 @@ The notebook for the First Model can be found at [https://github.com/D2jc/PrizeP
 
 ### [Random Forest Classifier (Second Model)](https://github.com/D2jc/PrizePicksPredictor/blob/main/Second_Model.ipynb)
 
-The notebook for Milestone 4 (Second Model) can be found at [https://github.com/D2jc/PrizePicksPredictor/blob/main/Second_Model.ipynb]
+The notebook for Milestone 4 (Second Model) can be found at ```Second_Model.ipynb```
 
 1. We completed pre-processing of the data in the same way as in Milestone 3, dropping unnecessary columns, standardized some of the features, aggregated features to extract new features like hot streaks. We used PrizePicks targets as the y variable and the cleaned data features as our x variables.
 2. We created an initial random forest classifier with 75% train and 25% test split.
-3. We tuned the hyperparameters using GridSearchCV, adjusting n_estimators, max_features, max_depth, and min_samples_split to achieve the maximum accuracy of 88% on the test data.
-4. We plotted train and test accuracy for different settings for hyperparameters using matplotlib, which shows the hyperparameters that we chose as the best possible ones.
+3. We plotted train and test accuracy for different settings for hyperparameters using matplotlib, which shows the hyperparameters that we chose as the best possible ones.
 
 ---------
 
@@ -75,7 +74,12 @@ The notebook for Milestone 4 (Second Model) can be found at [https://github.com/
 - what findings?
 
 ### Data Preprocessing
+- , we have already combined those columns, and 'turnover' and 'pf' was discussed to be unhelpful in our model.
+- 
 - how much cleaner is the data? before and after states?
+- can help the model capture whether or not the player is playing better than their average performance from past games.
+-  to truly capture the player's efficiency and impact instead of pure counts.
+-  This ensures that all features contribute equally to the model.
 
 ### LSTM RNN Model
 - accuracy and other metrics?
