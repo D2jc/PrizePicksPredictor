@@ -1,4 +1,4 @@
-> TODOs right now: add any more figures(?) and possibly get rid of some figures in methods->data exploration, add data exploration to methods section, do results -> data exploration/preprocessing and discussion section
+> TODOs right now: add any more figures(?) and possibly get rid of some figures in results->data exploration, add data exploration to methods section, do rdiscussion section
 
 # PrizePicksPredictor
 
@@ -26,36 +26,6 @@ The implications of this project extend beyond the realm of fantasy sports. A su
 
 ### Data Exploration:
 Run the Jupyter Notebook called AnalysisVis.ipynb which can be found in MS2. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
-
-> Maybe only include one of the figures and get rid of the others
-
-### Points Scored vs. Field Goals Attempted ###
-
-![Points Scored vs Field Goals Attempted](Figures/Points_scored_vs_field_goals_attempted_figure.png)
-
-#### Description: ####
-This scatterplot examines the relationship between the number of field goals attempted (FGA) and points scored. Data points are sized and colored based on FG%, providing additional insight into shooting efficiency. This figure explores scoring tendencies and efficiency across players, emphasizing how attempts correlate with outcomes and potentially other features.
-#### Key Insights: ####
-While more field goal attempts generally correspond to more points scored, the efficiency (FG%) varies, highlighting the importance of this metric in predictive models.
-
-### Rebounds Distribution ###
-
-![Rebounds Distribution](Figures/Rebounds_distribution_figure.png)
-
-#### Description: ####
-This boxplot shows the distribution of offensive rebounds, defensive rebounds, and total rebounds among players. The data showcases variability across these categories, providing an overview of rebounding patterns, which are critical for feature selection and understanding player contributions.
-#### Key Insights: ####
-Defensive rebounds are generally higher than offensive rebounds, but total rebounds show significant variability, reflecting differences in player roles and game dynamics.
-
-### Field Goal Percentage vs Points Scored ###
-
-![Field Goal Percentage vs Points Scored](Figures/Field_goal_percentage_vs_points_scored_figure.png)
-
-#### Description: ####
-This scatterplot visualizes the relationship between field goal percentage (FG%) and the total points scored in a game. Each data point is color-coded and sized based on FG%, offering a multidimensional perspective of the relationship. Highlights trends in player efficiency and scoring performance, helping to identify patterns or anomalies that may influence predictive modeling.
-#### Key Insights: ####
-As expected, players with higher FG% generally score more points. However, when FG% becomes exceptionally high, the limited number of attempts can result in a high FG% but a lower overall point total. Additionally, outliers highlight variability in player contributions, suggesting that factors beyond shooting efficiency influence scoring performance.
-
 
 ### Preprocessing Steps:
 
@@ -101,15 +71,61 @@ The notebook for Milestone 4 (Second Model) can be found at ```Second_Model.ipyn
 > FROM INSTRUCTIONS: This will include the results from the methods listed above (C). You will have figures here about your results as well. No exploration of results is done here. This is mainly just a summary of your results. The sub-sections will be the same as the sections in your methods section.
 
 ### Data Exploration
-- what findings?
+
+- The dataset contains player-specific statistics such as points, field goals, rebounds, assists, and other performance metrics.
+- Initial exploration revealed some irrelevant columns, such as turnover and pf, which do not significantly impact the predictive outcomes for our models.
+- A few features, like field goal percentage (fg_pct), and derived metrics, like points per minute played, show potential as strong predictors of player performance.
+
+> Do we need to include the figures for data exploration or should we get rid of them
+
+#### Points Scored vs. Field Goals Attempted ####
+
+![Points Scored vs Field Goals Attempted](Figures/Points_scored_vs_field_goals_attempted_figure.png)
+
+##### Description: #####
+This scatterplot examines the relationship between the number of field goals attempted (FGA) and points scored. Data points are sized and colored based on FG%, providing additional insight into shooting efficiency. This figure explores scoring tendencies and efficiency across players, emphasizing how attempts correlate with outcomes and potentially other features.
+##### Key Insights: #####
+While more field goal attempts generally correspond to more points scored, the efficiency (FG%) varies, highlighting the importance of this metric in predictive models.
+
+#### Rebounds Distribution ####
+
+![Rebounds Distribution](Figures/Rebounds_distribution_figure.png)
+
+##### Description: #####
+This boxplot shows the distribution of offensive rebounds, defensive rebounds, and total rebounds among players. The data showcases variability across these categories, providing an overview of rebounding patterns, which are critical for feature selection and understanding player contributions.
+##### Key Insights: #####
+Defensive rebounds are generally higher than offensive rebounds, but total rebounds show significant variability, reflecting differences in player roles and game dynamics.
+
+#### Field Goal Percentage vs Points Scored ####
+
+![Field Goal Percentage vs Points Scored](Figures/Field_goal_percentage_vs_points_scored_figure.png)
+
+##### Description: #####
+This scatterplot visualizes the relationship between field goal percentage (FG%) and the total points scored in a game. Each data point is color-coded and sized based on FG%, offering a multidimensional perspective of the relationship. Highlights trends in player efficiency and scoring performance, helping to identify patterns or anomalies that may influence predictive modeling.
+##### Key Insights: #####
+As expected, players with higher FG% generally score more points. However, when FG% becomes exceptionally high, the limited number of attempts can result in a high FG% but a lower overall point total. Additionally, outliers highlight variability in player contributions, suggesting that factors beyond shooting efficiency influence scoring performance.
+
 
 ### Data Preprocessing
-- , we have already combined those columns, and 'turnover' and 'pf' was discussed to be unhelpful in our model.
-- 
-- how much cleaner is the data? before and after states?
-- can help the model capture whether or not the player is playing better than their average performance from past games.
--  to truly capture the player's efficiency and impact instead of pure counts.
--  This ensures that all features contribute equally to the model.
+Column Selection:
+- Irrelevant columns such as `turnover`, `pf` are removed.
+- The individual name components (`first_name`, `last_name`) were dropped after being merged into a single `player_name` column.
+- By focusing on performance-related metrics, the dataset became more targeted for model training.
+  
+Additional Features:
+- New features were engineered, such as "on_hotstreak" metrics (points, rebounds, assists) to capture player trends over recent games.
+- Derived statistics like points per minute played and assists per minute played were introduced to better capture player efficiency.
+  
+Normalization:
+- Performance metrics such as `fgm`, `fga`, `reb`, and `ast` were normalized to ensure all features contributed equally during training.
+  
+Before and After States:
+- Before preprocessing, the dataset was cluttered with redundant or irrelevant columns and lacked uniform scaling.
+- After preprocessing, the dataset became cleaner, more concise, and better aligned with the needs of the predictive models.
+
+Impact on Modeling:
+  - These preprocessing steps were critical in creating a dataset capable of capturing whether a player outperformed or underperformed relative to their average metrics, enabling more reliable predictions when using our models.
+
 
 ### LSTM RNN Model
 Model Performance:
