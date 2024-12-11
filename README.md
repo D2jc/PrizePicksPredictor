@@ -1,4 +1,4 @@
-> TODOs right now: add any more figures(?) and possibly get rid of some figures in results->data exploration, add data exploration to methods section, do discussion section
+> TODOs right now: finalize discussion section
 
 # PrizePicksPredictor
 
@@ -22,10 +22,8 @@ The implications of this project extend beyond the realm of fantasy sports. A su
 
 ## Methods:
 
-> We should remove anything related to accuracy --> move to Results section. Also fix the links to notebooks to be in the main branch.
-
 ### Data Exploration:
-Run the Jupyter Notebook called AnalysisVis.ipynb which can be found in MS2. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
+In our initial exploration of the dataset, we began by examining key player-based performance metrics, including points scored, field goals attempted (FGA), field goal percentage (FG%), rebounds, and assists. To uncover potential trends and patterns, we created visualizations such as scatterplots and box plots to help us view the overall trend. For example, we plotted points scored against FGA to assess the relationship between these variables and incorporated FG% as a color scale to explore additional dimensions of player efficiency. We also generated box plots for offensive, defensive, and total rebounds to analyze their distributions, compare variability, and identify potential outliers. Beyond these analyses, we reviewed the dataset's structure to identify columns that might not be directly relevant to our predictive objectives. Metrics such as turnovers and personal fouls (PF) were dropped because we believed that those metrics were not as contributing to what we were trying to solve.
 
 ### Preprocessing Steps:
 
@@ -68,15 +66,7 @@ The notebook for Milestone 4 (Second Model) can be found at ```Second_Model.ipyn
 
 ## Results
 
-> FROM INSTRUCTIONS: This will include the results from the methods listed above (C). You will have figures here about your results as well. No exploration of results is done here. This is mainly just a summary of your results. The sub-sections will be the same as the sections in your methods section.
-
 ### Data Exploration
-
-- The dataset contains player-specific statistics such as points, field goals, rebounds, assists, and other performance metrics.
-- Initial exploration revealed some irrelevant columns, such as turnover and pf, which do not significantly impact the predictive outcomes for our models.
-- A few features, like field goal percentage (fg_pct), and derived metrics, like points per minute played, show potential as strong predictors of player performance.
-
-> Do we need to include the figures for data exploration or should we get rid of them
 
 #### Points Scored vs. Field Goals Attempted ####
 
@@ -105,7 +95,6 @@ This scatterplot visualizes the relationship between field goal percentage (FG%)
 ##### Key Insights: #####
 As expected, players with higher FG% generally score more points. However, when FG% becomes exceptionally high, the limited number of attempts can result in a high FG% but a lower overall point total. Additionally, outliers highlight variability in player contributions, suggesting that factors beyond shooting efficiency influence scoring performance.
 
-
 ### Data Preprocessing
 Column Selection:
 - Irrelevant columns such as `turnover`, `pf` are removed.
@@ -118,43 +107,21 @@ Additional Features:
   
 Normalization:
 - Performance metrics such as `fgm`, `fga`, `reb`, and `ast` were normalized to ensure all features contributed equally during training.
-  
-Before and After States:
-- Before preprocessing, the dataset was cluttered with redundant or irrelevant columns and lacked uniform scaling.
-- After preprocessing, the dataset became cleaner, more concise, and better aligned with the needs of the predictive models.
-
-Impact on Modeling:
-  - These preprocessing steps were critical in creating a dataset capable of capturing whether a player outperformed or underperformed relative to their average metrics, enabling more reliable predictions when using our models.
 
 
 ### LSTM RNN Model
-Model Performance:
-- Training Accuracy: Reached 68.72% by the 10th epoch, showing the model effectively learned from the training data.
-- Test Accuracy: Peaked at 67.49%, demonstrating reasonable generalization to unseen data.
-Loss Reduction:
-- The loss decreased from 17.34 to 14.93 over the course of 10 epochs, indicating consistent improvements in model predictions.
 
 ![Training and test accuracy over epochs](Figures/Training_and_test_accuracy_over_epochs.png)
-  
-Interpretation:
-- The model performed better than random guessing (50%) for binary classification.
-- The 67.49% test accuracy suggests room for improvement in model design or feature engineering.
+
 
 ### Random Forest Classifier
-Model Performance:
-- Train Accuracy: Reached 99%, demonstrating the model effectively captured the patterns in the training data.
-- Test Accuracy: Achieved 88%, significantly better than the baseline (50%), indicating strong predictive power.
-Error Analysis:
-- False Positive Rate: 4%, reflecting the model's tendency to minimize false alarms.
-- False Negative Rate: 8%, indicating some room for improvement in identifying true positives.
+
 
 ![Accuracy of random forest classifier during training](Figures/Accuracy_of_random_forest_classifier_during_training.png)
   
 Interpretation:
 - The Random Forest Classifier outperformed the first model (LSTM), with a substantial increase in test accuracy.
 - The balance between FPR and FNR suggests the model is more conservative in making positive predictions.
-
-> We are supposed to follow the same structure as the methods section but I don't think it makes sense for us to have PrizePicks Projections as a section in Results. Thoughts?
 
 ---------
 
@@ -163,8 +130,35 @@ Interpretation:
 > FROM INSTRUCTIONS: This is where you will discuss the why, and your interpretation and your though process from beginning to end. This will mimic the sections you have created in your methods section as well as new sections you feel you need to create. You can also discuss how believable your results are at each step. You can discuss any short comings. It's ok to criticize as this shows your intellectual merit, as to how you are thinking about things scientifically and how you are able to correctly scrutinize things and find short comings. In science we never really find the perfect solution, especially since we know something will probably come up int he future (i.e. donkeys) and mess everything up. If you do it's probably a unicorn or the data and model you chose are just perfect for each other!
 
 
+### Preprocessing
+
+Before and After States:
+- Before preprocessing, the dataset was cluttered with redundant or irrelevant columns and lacked uniform scaling.
+- After preprocessing, the dataset became cleaner, more concise, and better aligned with the needs of the predictive models.
+
+Impact on Modeling:
+  - These preprocessing steps were critical in creating a dataset capable of capturing whether a player outperformed or underperformed relative to their average metrics, enabling more reliable predictions when using our models.
+
+
+### First Model
+
+Model Performance:
+- Training Accuracy: Reached 68.72% by the 10th epoch, showing the model effectively learned from the training data.
+- Test Accuracy: Peaked at 67.49%, demonstrating reasonable generalization to unseen data.
+- The loss decreased from 17.34 to 14.93 over the course of 10 epochs, indicating consistent improvements in model predictions.
+- The 67.49% test accuracy suggests room for improvement in model design or feature engineering.
 
 We believe that the LSTM model performed well given the context of the problem with an accuracy rate of 67%, which is better than blindly guessing (50% chance). We believe that our model can be improved with different feature engineering such as giving the actual averages of our players from different time periods or hyperparameter tuning our model where we experiment with different LTSM options such as hidden layer sizes, learning rates, and sequence lengths. Lastly, we can try different models such as Attention Long-short Term Model and Stacked Long-short Term Model to see how they would be compared to our baseline LSTM.
+
+
+### Second Model
+
+Model Performance:
+- Train Accuracy: Reached 99%, demonstrating the model effectively captured the patterns in the training data.
+- Test Accuracy: Achieved 88%, significantly better than the baseline (50%), indicating strong predictive power.
+Error Analysis:
+- False Positive Rate: 4%, reflecting the model's tendency to minimize false alarms.
+- False Negative Rate: 8%, indicating some room for improvement in identifying true positives.
 
 Following using a random forest classifier for our second model, we realized from this model that in order to get the minimum test error, we needed to overfit our training set a little bit. After optimizing our hyperparameters, we got the maximum accuracy at about 80%, which is what we previosuly capped out at. We increased the hidden layers in our random forest model and learned that it did a better job than the original model of determing hidden features and other intracies in our data. For our next model, it may be worth it to try approaches that are closer to the random forest approach in comparison to the RNN approach, as we found this works significantly better.
 
