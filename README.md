@@ -1,4 +1,4 @@
-> TODOs right now: add figures around, add data exploration to methods section, do results section and discussion section
+> TODOs right now: add any more figures(?) and possibly get rid of some figures in methods->data exploration, add data exploration to methods section, do results -> data exploration/preprocessing and discussion section
 
 # PrizePicksPredictor
 
@@ -20,11 +20,16 @@ The implications of this project extend beyond the realm of fantasy sports. A su
 
 ---------
 
-## Figures
+## Methods:
 
-> FROM INSTRUCTIONS: Your report should include relevant figures of your choosing to help with the narration of your story, including legends (similar to a scientific paper). For reference you search machine learning and your model in google scholar for reference examples.
+> We should remove anything related to accuracy --> move to Results section. Also fix the links to notebooks to be in the main branch.
 
-### Figure 1: Points Scored vs. Field Goals Attempted ###
+### Data Exploration:
+Run the Jupyter Notebook called AnalysisVis.ipynb which can be found in MS2. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
+
+> Maybe only include one of the figures and get rid of the others
+
+### Points Scored vs. Field Goals Attempted ###
 
 ![Points Scored vs Field Goals Attempted](Figures/Points_scored_vs_field_goals_attempted_figure.png)
 
@@ -33,7 +38,7 @@ This scatterplot examines the relationship between the number of field goals att
 #### Key Insights: ####
 While more field goal attempts generally correspond to more points scored, the efficiency (FG%) varies, highlighting the importance of this metric in predictive models.
 
-### Figure 2: Rebounds Distribution ###
+### Rebounds Distribution ###
 
 ![Rebounds Distribution](Figures/Rebounds_distribution_figure.png)
 
@@ -42,7 +47,7 @@ This boxplot shows the distribution of offensive rebounds, defensive rebounds, a
 #### Key Insights: ####
 Defensive rebounds are generally higher than offensive rebounds, but total rebounds show significant variability, reflecting differences in player roles and game dynamics.
 
-### Figure 3: Field Goal Percentage vs Points Scored ###
+### Field Goal Percentage vs Points Scored ###
 
 ![Field Goal Percentage vs Points Scored](Figures/Field_goal_percentage_vs_points_scored_figure.png)
 
@@ -51,15 +56,6 @@ This scatterplot visualizes the relationship between field goal percentage (FG%)
 #### Key Insights: ####
 As expected, players with higher FG% generally score more points. However, when FG% becomes exceptionally high, the limited number of attempts can result in a high FG% but a lower overall point total. Additionally, outliers highlight variability in player contributions, suggesting that factors beyond shooting efficiency influence scoring performance.
 
-
----------
-
-## Methods:
-
-> We should remove anything related to accuracy --> move to Results section. Also fix the links to notebooks to be in the main branch.
-
-### Data Exploration:
-Run the Jupyter Notebook called AnalysisVis.ipynb which can be found in MS2. This notebook has our data exploration and many different visualizations of the data set that we are using. Most of the visualizations that we have created revolve around the player's performances.
 
 ### Preprocessing Steps:
 
@@ -116,10 +112,31 @@ The notebook for Milestone 4 (Second Model) can be found at ```Second_Model.ipyn
 -  This ensures that all features contribute equally to the model.
 
 ### LSTM RNN Model
-- accuracy and other metrics?
+Model Performance:
+- Training Accuracy: Reached 68.72% by the 10th epoch, showing the model effectively learned from the training data.
+- Test Accuracy: Peaked at 67.49%, demonstrating reasonable generalization to unseen data.
+Loss Reduction:
+- The loss decreased from 17.34 to 14.93 over the course of 10 epochs, indicating consistent improvements in model predictions.
+
+![Training and test accuracy over epochs](Figures/Training_and_test_accuracy_over_epochs.png)
+  
+Interpretation:
+-The model performed better than random guessing (50%) for binary classification.
+-The 67.49% test accuracy suggests room for improvement in model design or feature engineering.
 
 ### Random Forest Classifier
-- accuracy, precision, recall, fp and fn rates, and other metrics?
+Model Performance:
+- Train Accuracy: Reached 99%, demonstrating the model effectively captured the patterns in the training data.
+- Test Accuracy: Achieved 88%, significantly better than the baseline (50%), indicating strong predictive power.
+Error Analysis:
+- False Positive Rate: 4%, reflecting the model's tendency to minimize false alarms.
+- False Negative Rate: 8%, indicating some room for improvement in identifying true positives.
+
+![Accuracy of random forest classifier during training](Figures/Accuracy_of_random_forest_classifier_during_training.png)
+  
+Interpretation:
+- The Random Forest Classifier outperformed the first model (LSTM), with a substantial increase in test accuracy.
+- The balance between FPR and FNR suggests the model is more conservative in making positive predictions.
 
 > We are supposed to follow the same structure as the methods section but I don't think it makes sense for us to have PrizePicks Projections as a section in Results. Thoughts?
 
