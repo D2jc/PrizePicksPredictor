@@ -20,6 +20,40 @@ The implications of this project extend beyond the realm of fantasy sports. A su
 
 ---------
 
+## Figures
+
+> FROM INSTRUCTIONS: Your report should include relevant figures of your choosing to help with the narration of your story, including legends (similar to a scientific paper). For reference you search machine learning and your model in google scholar for reference examples.
+
+### Figure 1: Points Scored vs. Field Goals Attempted ###
+
+![Points Scored vs Field Goals Attempted](Figures/Points_scored_vs_field_goals_attempted_figure.png)
+
+#### Description: ####
+This scatterplot examines the relationship between the number of field goals attempted (FGA) and points scored. Data points are sized and colored based on FG%, providing additional insight into shooting efficiency. This figure explores scoring tendencies and efficiency across players, emphasizing how attempts correlate with outcomes and potentially other features.
+#### Key Insights: ####
+While more field goal attempts generally correspond to more points scored, the efficiency (FG%) varies, highlighting the importance of this metric in predictive models.
+
+### Figure 2: Rebounds Distribution ###
+
+![Rebounds Distribution](Figures/Rebounds_distribution_figure.png)
+
+#### Description: ####
+This boxplot shows the distribution of offensive rebounds, defensive rebounds, and total rebounds among players. The data showcases variability across these categories, providing an overview of rebounding patterns, which are critical for feature selection and understanding player contributions.
+#### Key Insights: ####
+Defensive rebounds are generally higher than offensive rebounds, but total rebounds show significant variability, reflecting differences in player roles and game dynamics.
+
+### Figure 3: Field Goal Percentage vs Points Scored ###
+
+![Field Goal Percentage vs Points Scored](Figures/Field_goal_percentage_vs_points_scored_figure.png)
+
+#### Description: ####
+This scatterplot visualizes the relationship between field goal percentage (FG%) and the total points scored in a game. Each data point is color-coded and sized based on FG%, offering a multidimensional perspective of the relationship. Highlights trends in player efficiency and scoring performance, helping to identify patterns or anomalies that may influence predictive modeling.
+#### Key Insights: ####
+As expected, players with higher FG% generally score more points. However, when FG% becomes exceptionally high, the limited number of attempts can result in a high FG% but a lower overall point total. Additionally, outliers highlight variability in player contributions, suggesting that factors beyond shooting efficiency influence scoring performance.
+
+
+---------
+
 ## Methods:
 
 > We should remove anything related to accuracy --> move to Results section. Also fix the links to notebooks to be in the main branch.
