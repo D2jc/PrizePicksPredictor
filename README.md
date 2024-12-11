@@ -121,8 +121,8 @@ Loss Reduction:
 ![Training and test accuracy over epochs](Figures/Training_and_test_accuracy_over_epochs.png)
   
 Interpretation:
--The model performed better than random guessing (50%) for binary classification.
--The 67.49% test accuracy suggests room for improvement in model design or feature engineering.
+- The model performed better than random guessing (50%) for binary classification.
+- The 67.49% test accuracy suggests room for improvement in model design or feature engineering.
 
 ### Random Forest Classifier
 Model Performance:
