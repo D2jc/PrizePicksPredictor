@@ -118,10 +118,6 @@ Normalization:
 
 
 ![Accuracy of random forest classifier during training](Figures/Accuracy_of_random_forest_classifier_during_training.png)
-  
-Interpretation:
-- The Random Forest Classifier outperformed the first model (LSTM), with a substantial increase in test accuracy.
-- The balance between FPR and FNR suggests the model is more conservative in making positive predictions.
 
 ---------
 
@@ -159,6 +155,8 @@ Model Performance:
 Error Analysis:
 - False Positive Rate: 4%, reflecting the model's tendency to minimize false alarms.
 - False Negative Rate: 8%, indicating some room for improvement in identifying true positives.
+- The Random Forest Classifier outperformed the first model (LSTM), with a substantial increase in test accuracy.
+- The balance between FPR and FNR suggests the model is more conservative in making positive predictions.
 
 Following using a random forest classifier for our second model, we realized from this model that in order to get the minimum test error, we needed to overfit our training set a little bit. After optimizing our hyperparameters, we got the maximum accuracy at about 80%, which is what we previosuly capped out at. We increased the hidden layers in our random forest model and learned that it did a better job than the original model of determing hidden features and other intracies in our data. For our next model, it may be worth it to try approaches that are closer to the random forest approach in comparison to the RNN approach, as we found this works significantly better.
 
