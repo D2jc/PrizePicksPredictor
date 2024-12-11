@@ -1,4 +1,4 @@
-> TODOs right now: add any more figures(?) and possibly get rid of some figures in results->data exploration, add data exploration to methods section, do rdiscussion section
+> TODOs right now: add any more figures(?) and possibly get rid of some figures in results->data exploration, add data exploration to methods section, do discussion section
 
 # PrizePicksPredictor
 
