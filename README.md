@@ -1,5 +1,3 @@
-> TODOs right now: finalize discussion section
-
 # PrizePicksPredictor
 
 Minchan Kim, David Moon, Mihir Joshi, Rohil Kadekar, Jason Kim
@@ -123,31 +121,32 @@ Normalization:
 
 ## Discussion
 
-> FROM INSTRUCTIONS: This is where you will discuss the why, and your interpretation and your though process from beginning to end. This will mimic the sections you have created in your methods section as well as new sections you feel you need to create. You can also discuss how believable your results are at each step. You can discuss any short comings. It's ok to criticize as this shows your intellectual merit, as to how you are thinking about things scientifically and how you are able to correctly scrutinize things and find short comings. In science we never really find the perfect solution, especially since we know something will probably come up int he future (i.e. donkeys) and mess everything up. If you do it's probably a unicorn or the data and model you chose are just perfect for each other!
+ FROM INSTRUCTIONS: This is where you will discuss the why, and your interpretation and your though process from beginning to end. This will mimic the sections you have created in your methods section as well as new sections you feel you need to create. You can also discuss how believable your results are at each step. You can discuss any short comings. It's ok to criticize as this shows your intellectual merit, as to how you are thinking about things scientifically and how you are able to correctly scrutinize things and find short comings. In science we never really find the perfect solution, especially since we know something will probably come up int he future (i.e. donkeys) and mess everything up. If you do it's probably a unicorn or the data and model you chose are just perfect for each other!
 
 
 ### Preprocessing
 
-Before and After States:
-- Before preprocessing, the dataset was cluttered with redundant or irrelevant columns and lacked uniform scaling.
-- After preprocessing, the dataset became cleaner, more concise, and better aligned with the needs of the predictive models.
+The preprocessing stage was very important to make sure the dataset was clean, relevant, and optimized for our models. Initially, the raw data was not too littered with redundant columns, some columns such as ```turnover```, ```pf```, and separate ```first_name``` and ```last_name``` were deleted. These columns were irrelevant to our predictive objectives and could introduce noise into the models. By combining names into a single ```player_name``` column to help with joining the Prizepicks dataframe and dropping irrelevant fields, we were able to streamline the dataset for our models. The merging of PrizePicks data was also important in aligning player performance statistics with the PrizePicks lines. The PrizePicks dataset had our daily projections for points, rebounds, and assists, which served as the basis for our target variables (Though for our project, we only used points). After creating the ```player_name``` column, we joined the PrizePicks data with the NBA player performance data on this field and the date column. This ensured that the PrizePicks lines corresponded accurately to the same players and game dates in our dataset.
 
-Impact on Modeling:
-  - These preprocessing steps were critical in creating a dataset capable of capturing whether a player outperformed or underperformed relative to their average metrics, enabling more reliable predictions when using our models.
+Normalization was also important in our preprocessing step. Features such as fgm (field goals made), fga (field goals attempted), and pts (points scored) were scaled to a standard distribution (mean = 0, std = 1) to prevent larger-scale features from dominating the model. Without this step, features with higher numerical ranges could disproportionately influence the training process, which can lead to worse predictions. Feature engineering was also utilized in our dataset as we felt like there could be more features that can help with the prediction. The "on_hotstreak" metrics, which captured a player's performance over the last five games, provided temporal insights into a player's form. In addition, features like points per minute and assists per minute gave deeper context into player efficiency, making the data more representative of actual performance trends.
 
-
-### First Model
-
-Model Performance:
-- Training Accuracy: Reached 68.72% by the 10th epoch, showing the model effectively learned from the training data.
-- Test Accuracy: Peaked at 67.49%, demonstrating reasonable generalization to unseen data.
-- The loss decreased from 17.34 to 14.93 over the course of 10 epochs, indicating consistent improvements in model predictions.
-- The 67.49% test accuracy suggests room for improvement in model design or feature engineering.
-
-We believe that the LSTM model performed well given the context of the problem with an accuracy rate of 67%, which is better than blindly guessing (50% chance). We believe that our model can be improved with different feature engineering such as giving the actual averages of our players from different time periods or hyperparameter tuning our model where we experiment with different LTSM options such as hidden layer sizes, learning rates, and sequence lengths. Lastly, we can try different models such as Attention Long-short Term Model and Stacked Long-short Term Model to see how they would be compared to our baseline LSTM.
+While our preprocessing improved the dataset significantly, several limitations remain. For instance, we relied solely on static player performance metrics and PrizePicks lines, ignoring contextual factors such as team matchups, player injuries, or specific player match-ups. By using other data sources that can cover play-by-play statistics or player analytics with further insight, could significantly enhance the model's ability to make context-aware predictions. Overall, we believe that these preprocessing steps were effective in creating a dataset capable of capturing whether a player outperformed or underperformed relative to their average metrics, enabling more reliable predictions when using our models.
 
 
-### Second Model
+### LSTM RNN Model
+
+The Long Short-Term Memory (LSTM) Recurrent Neural Network (RNN) was our first attempt to model the temporal dependencies in player performance data. With a training accuracy of 68.72% and a test accuracy of 67.49%, we thought that the model performed moderately well in comparison to a random guessing of 50%. However, there were notable limitations in its ability to generalize and accurately predict outcomes, as evidenced by the relatively low F1 score of 48.78%, precision of 69.44%, and a recall score of 37.59%.
+
+We thought that LSTMs are well-suited for time-series data because they do well at capturing sequential dependencies and long-term trends. Their architecture allows them to selectively remember or forget information over time. This makes them particularly effective for analyzing temporal data, where the sequence and order of events matter. For our project, this was a natural fit, as player performance data inherently follows a temporal structure, with performance metrics influenced by recent games.
+
+Features like the "on_hotstreak" metrics, which indicate whether a player is performing above or below their recent averages, also aligned with the temporal focus of the model. These metrics provided a snapshot of recent performance trends, allowing the LSTM to consider a player's recent form when making predictions. Additionally, the sliding window approach we used to create sequences from the dataset offered the LSTM a structured view of consecutive games, enabling it to capture patterns such as streaks of strong or weak performances.
+
+However, the effectiveness of LSTMs is also heavily dependent on the dataset. In our case, the dataset's size and structure may have constrained the model's potential as we solely focused on the 2024-2025 NBA season. One major limitation was that the season had only recently started at the time of this project, meaning there were relatively few games played and therefore limited data available for each player. This lack of data likely affected the LSTM's ability to learn meaningful patterns, as player performance trends and statistical variability tend to become more pronounced over time. For example, early-season data often could include outliers, such as players adjusting to new roles or recovering from offseason changes. With only a handful of games per player, the model may have struggled to generalize its predictions effectively. Thinking back, using data from the previous 2023-2024 NBA season with this season would have been much better. The additional data would have provided a better context for the model, allowing it to analyze player performance over a longer time frame and capture trends that carry over from one season to the next. By using both current-season data and historical performance, the LSTM could have gained a deeper understanding of each player’s behavior, their responses to different matchups, and their long-term trends. Using past-season data would also have increased the number of sequences available for training.
+
+Another challenge was hyperparameter tuning. While we used a baseline LSTM architecture, experimenting with different sequence lengths, hidden layer sizes, dropout rates, and learning rates could potentially improve the model's performance. Additionally, incorporating attention mechanisms could enhance the model's ability to focus on key sequences or moments, improving predictive accuracy. We believe that our model can be improved with different feature engineering such as giving the actual averages of our players from different time periods or hyperparameter tuning our model where we experiment with different LTSM options such as hidden layer sizes, learning rates, and sequence lengths. Lastly, we can try different models such as Attention Long-short Term Model and Stacked Long-short Term Model to see how they would be compared to our baseline LSTM.
+
+
+### Random Forest Classifier Model
 
 Model Performance:
 - Train Accuracy: Reached 99%, demonstrating the model effectively captured the patterns in the training data.
