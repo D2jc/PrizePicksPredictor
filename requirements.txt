@@ -6,6 +6,10 @@ numpy
 pandas
 sqlalchemy
 tqdm
+torch
+matplotlib
+scikit-learn
+
 
 # Install with conda:
 # conda install psycopg2
